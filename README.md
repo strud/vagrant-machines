@@ -138,6 +138,9 @@ Note: the balancer does not run all the time - it can take a while until the chu
 
 - IP already used within your network
   - open the vagrant fiel and change the ip of all nodes: xxx.vm.network :hostonly, "10.0.0.24" 
+- low bandwidth or apt-get problems
+  - change the puppet recipies in the vagrant file to puppet.manifest_file  = "sharding-playground-dpkg.pp" or puppet.manifest_file  = "configserver-playground-dpkg.pp"
+  - you can download the deb file here http://downloads-distro.mongodb.org/repo/ubuntu-upstart/dists/dist/10gen/binary-amd64/ 
 
 #### Links
 
