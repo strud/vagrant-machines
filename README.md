@@ -46,6 +46,7 @@ Startup:
 ```
 cd sharding-playground
 vagrant up
+vagrant provision (if necessary)
 ```
 
 The startup can take a while - it took 4 minutes per instance with my internet connection.
@@ -105,23 +106,19 @@ sh.enableSharding("wikipedia")
 #### Enable sharding on the collection
 
 ```
-sh.shardCollection("wikipedia.articles", {_id: 1})
+sh.shardCollection("wikipedia_id.articles", {_id: 1})
 ```
 or
 ```
-sh.shardCollection("wikipedia.articles", {url: 1})
+sh.shardCollection("wikipedia_url.articles", {url: 1})
 ```
 or
 ```
-sh.shardCollection("wikipedia.articles", {title: 1})
-```
-or
-```
-sh.shardCollection("wikipedia.articles", {sKey: 1})
+sh.shardCollection("wikipedia_title.articles", {title: 1})
 ```
 or (2.4 only)
 ```
-sh.shardCollection("wikipedia.articles", {title: "hashed"})
+sh.shardCollection("wikipedia_title_hash.articles", {title: "hashed"})
 ```
 #### Check Shards
 
