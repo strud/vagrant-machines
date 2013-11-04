@@ -40,10 +40,11 @@ package { 'libnss-mdns':
 file { '/etc/mongodb.conf':
 	ensure  => present,
 	source  => '/vagrant/manifests/mongodb.conf',
-	require => Exec['mongodb-10gen'],
+	require => Package['mongodb-10gen'],
 }
 
 service{ 'mongodb':
   ensure => running,
   subscribe => File['/etc/mongodb.conf'],
+  require => Package['mongodb-10gen'],
 }
