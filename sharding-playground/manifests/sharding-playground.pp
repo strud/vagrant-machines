@@ -1,20 +1,14 @@
 # -*- mode: ruby -*-
 
-package { 'vim':
-	ensure => present,
-}
-
-group { 'puppet':
-	ensure => 'present',
-}
-
-package { 'libnss-mdns':
-	ensure  => present,
-}
-
 file { '/etc/apt/sources.list.d/10gen.list':
 	ensure  => 'present',
 	source  => '/vagrant/manifests/10gen.list',
+}
+
+exec { "apt-get update":
+  command => "/usr/bin/apt-get update",
+  path    => '/usr/local/bin/:/bin/:/usr/bin/:/sbin/:/usr/sbin/',
+  require => [File['/etc/apt/sources.list.d/10gen.list'], Exec['add-10genkey']],
 }
 
 exec { 'add-10genkey':
@@ -29,10 +23,24 @@ package { 'mongodb-10gen':
 	require => Exec['add-10genkey'],
 }
 
+package { 'vim':
+	ensure  => present,
+  require => Exec['apt-get update'],  
+}
+
+group { 'puppet':
+	ensure => 'present',
+}
+
+package { 'libnss-mdns':
+	ensure  => present,  
+  require => Exec['apt-get update'],  
+}
+
 file { '/etc/mongodb.conf':
 	ensure  => present,
 	source  => '/vagrant/manifests/mongodb.conf',
-	require => Package['mongodb-10gen'],
+	require => Exec['mongodb-10gen'],
 }
 
 service{ 'mongodb':

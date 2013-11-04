@@ -13,8 +13,7 @@ Vagrant::Config.run do |config|
     shard01.vm.host_name = "shard01"
     shard01.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
-      #puppet.manifest_file  = "sharding-playground.pp"
-      puppet.manifest_file  = "sharding-playground-dpkg.pp"
+      puppet.manifest_file  = "sharding-playground.pp"
     end
   end
 
@@ -28,8 +27,7 @@ Vagrant::Config.run do |config|
     shard02.vm.host_name = "shard02"
     shard02.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
-      #puppet.manifest_file  = "sharding-playground.pp"
-      puppet.manifest_file  = "sharding-playground-dpkg.pp"
+      puppet.manifest_file  = "sharding-playground.pp"
     end
   end
 
@@ -43,8 +41,7 @@ Vagrant::Config.run do |config|
     shard03.vm.host_name = "shard03"
     shard03.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
-      #puppet.manifest_file  = "sharding-playground.pp"
-      puppet.manifest_file  = "sharding-playground-dpkg.pp"
+      puppet.manifest_file  = "sharding-playground.pp"
     end
   end
   
@@ -58,8 +55,7 @@ Vagrant::Config.run do |config|
     configsrv.vm.host_name = "configsrv"
     configsrv.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
-      #puppet.manifest_file  = "configserver-playground.pp"
-      puppet.manifest_file  = "configserver-playground-dpkg.pp"
+      puppet.manifest_file  = "configserver-playground.pp"
     end
   end
 
