@@ -109,20 +109,20 @@ sh.shardCollection("wikipedia.articles", {_id: 1})
 ```
 or
 ```
-db.articles.ensureIndex({url: 1})
 sh.shardCollection("wikipedia.articles", {url: 1})
 ```
 or
 ```
-db.articles.ensureIndex({title: 1})
 sh.shardCollection("wikipedia.articles", {title: 1})
 ```
 or
 ```
-db.articles.ensureIndex({sKey: 1})
 sh.shardCollection("wikipedia.articles", {sKey: 1})
 ```
-
+or (2.4 only)
+```
+sh.shardCollection("wikipedia.articles", {title: "hashed"})
+```
 #### Check Shards
 
 To see how the documents are distributed through our little demo cluster, you can run the command below while importing documents:
