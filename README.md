@@ -145,3 +145,4 @@ Note: the balancer does not run all the time - it can take a while until the chu
 #### Links
 
 Useful link to the MongoDB documentation: http://docs.mongodb.org/manual/administration/sharding/
+Details to Hashed Sharding Keys: http://docs.mongodb.org/manual/tutorial/shard-collection-with-a-hashed-shard-key/
